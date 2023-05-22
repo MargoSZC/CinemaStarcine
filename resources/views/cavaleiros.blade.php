@@ -7,7 +7,7 @@
             <meta name="author" content="" />
             <title>Cavaleiros do Zodíaco</title>
             <!-- Favicon-->
-            <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+            <link rel="icon" type="image/x-icon" href="assets/favicon.ico.png" />
             <!-- Bootstrap icons-->
             <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
             <!-- Core theme CSS (includes Bootstrap)-->
@@ -18,7 +18,7 @@
          <!-- Navigation-->
          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-4 px-lg-5">
-                <img src="assets/fovicon.ico.png" width="50px" height="50px"> <br> <br>
+                <img src="assets/favicon.ico.png" width="50px" height="50px"> <br> <br>
                 <a class="navbar-brand" href="principal">Star Cine</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -6,7 +6,7 @@
         <meta name="author" content="" />
         <title>Star Cine - compra </title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/fovicon.ico.png" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico.png" />
         <!--Icone fonte awsome-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Bootstrap icons-->
@@ -17,7 +17,7 @@
     <body> 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-4 px-lg-5">
-                <img src="assets/fovicon.ico.png" width="50px" height="50px"> <br> <br>
+                <img src="assets/favicon.ico.png" width="50px" height="50px"> <br> <br>
                 <a class="navbar-brand" href="principal">Star Cine</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">

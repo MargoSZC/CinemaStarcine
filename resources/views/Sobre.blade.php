@@ -18,7 +18,7 @@
          <!-- Navigation-->
          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-4 px-lg-5">
-                <img src="assets/fovicon.ico.png" width="50px" height="50px"> <br> <br>
+                <img src="assets/favicon.ico.png" width="50px" height="50px"> <br> <br>
                 <a class="navbar-brand" href="principal">Star Cine</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -33,6 +33,16 @@
                                 <li><a class="dropdown-item" href="produto">Lista e cadastro de produtos  </a></li>
                                 <li><a class="dropdown-item" href="funcionario">Lista e cadastro de funcionários</a></li>
                             </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Arquivos Miguel</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="conecta_mysql">Conecta mysql</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="consulta_envio">Consulta e envio  </a></li>
+                                <li><a class="dropdown-item" href="consulta_mac">Consulta MAC</a></li>
+                                <li><a class="dropdown-item" href="consulta_push">Consulta Push</a></li>
+                                <li><a class="dropdown-item" href="piloto_insert">Piloto Insert</a></li>
                         </li>
                     </ul>
                 </div>
