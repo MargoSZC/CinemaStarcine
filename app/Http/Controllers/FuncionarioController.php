@@ -42,28 +42,7 @@ class FuncionarioController extends Controller
                 'funcao.max' => 'Só é permitido 30 caracteres',
             ]
         );
-
        
-        $imagemfuncionario = $request->file('imagemfuncionario');
-        $nome_arquivo = '';
-        if ($imagemfuncionario) {
-            $nome_arquivo =
-                date('YmdHis') . '.' . $imagemfuncionario->getClientOriginalExtension();
-
-            $diretorio = 'imagem/';
-            $imagemfuncionario->storeAs($diretorio, $nome_arquivo, 'public');
-            $nome_arquivo = $diretorio . $nome_arquivo;
-        }
-
-        //dd( $request->nome);
-        Funcionario::create([
-            'nome' => $request->nome,
-            'salario' => $request->salario,
-            'funcao' => $request->funcao,
-            'categoriafuncionario_id' => $request->categoriafuncionario_id,
-            'imagemfuncionario' => $nome_arquivo,
-        ]);
-
         $dados = [
             'nome' => $request->nome,
             'salario' => $request->salario,
@@ -180,8 +159,6 @@ class FuncionarioController extends Controller
             'App\Http\Controllers\FuncionarioController@index'
         );
     }
-    }
-
     function search(Request $request)
     {
         if ($request->campo == 'nome') {
@@ -194,10 +171,10 @@ class FuncionarioController extends Controller
             $funcionarios = Funcionario::all();
         }
 
-        //dd($usuarios);
+        //dd($funcionarios);
         return view('FuncionarioList')->with(['funcionarios' => $funcionarios]);
     }
-
+}
 
 // npm install --save-dev vite laravel-vite-plugin
 // npm install --save-dev @vitejs/plugin-vue

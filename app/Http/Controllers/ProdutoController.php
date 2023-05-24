@@ -43,26 +43,8 @@ class ProdutoController extends Controller
                 'tamanho.max' => 'Só é permitido 20 caracteres',
             ]
         );
-
-        $imagemproduto = $request->file('imagemproduto');
-        $nome_arquivo = '';
-        if ($imagemproduto) {
-            $nome_arquivo =
-                date('YmdHis') . '.' . $imagemproduto->getClientOriginalExtension();
-
-            $diretorio = 'imagem/';
-            $imagemproduto->storeAs($diretorio, $nome_arquivo, 'public');
-            $nome_arquivo = $diretorio . $nome_arquivo;
-        }
-
         //dd( $request->nome);
-        Produto::create([
-            'nome' => $request->nome,
-            'valor' => $request->valor,
-            'tamanho' => $request->tamanho,
-            'categoriaproduto_id' => $request->categoriaproduto_id,
-            'imagemproduto' => $nome_arquivo,
-        ]);
+    
 
         $dados = [
             'nome' => $request->nome,

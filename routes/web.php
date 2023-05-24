@@ -22,36 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('conecta_mysql', function () {
-    return view('conecta_mysql');
-})
-    ->middleware(['auth', 'verified'])
-    ->name('conecta_mysql');
-
-    Route::get('consulta_envio', function () {
-        return view('consulta_envio');
-    })
-        ->middleware(['auth', 'verified'])
-        ->name('consulta_envio');
-
-        Route::get('consulta_mac', function () {
-            return view('consulta_mac');
-        })
-            ->middleware(['auth', 'verified'])
-            ->name('consulta_mac');
-
-            Route::get('consulta_push', function () {
-                return view('consulta_push');
-            })
-                ->middleware(['auth', 'verified'])
-                ->name('consulta_push');
-
-                Route::get('piloto_insert', function () {
-                    return view('piloto_insert');
-                })
-                    ->middleware(['auth', 'verified'])
-                    ->name('piloto_insert');
-
 Route::get('dashboard', function () {
     return view('dashboard');
 })

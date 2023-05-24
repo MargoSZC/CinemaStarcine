@@ -25,19 +25,19 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-4 px-lg-5">
                 <img src="{{asset('assets/favicon.ico.png')}}" width="50px" height="50px"> <br> <br>
-                <a class="navbar-brand" href="principal">Star Cine</a>
+                <a class="navbar-brand" href="{{url('/principal') }}">Star Cine</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="principal">Filmes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="sobre">Sobre nós</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{url('/principal') }}">Filmes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/sobre') }}">Sobre nós</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Mais opções</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="filme">Lista e cadastro de filmes</a></li>
+                                <li><a class="dropdown-item" href="{{url('/filme') }}">Lista e cadastro de filmes</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="produto">Lista e cadastro de produtos  </a></li>
-                                <li><a class="dropdown-item" href="funcionario">Lista e cadastro de funcionários</a></li>
+                                <li><a class="dropdown-item" href="{{ url('/produto') }}">Lista e cadastro de produtos  </a></li>
+                                <li><a class="dropdown-item" href="{{ url('/funcionario') }}">Lista e cadastro de funcionários</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -28,7 +28,7 @@ class FilmeController extends Controller
         $request->validate(
             [
                 'nome' => 'required | max: 120',
-                'horario' => 'required | max: 6',
+                'horario' => 'required | max: 50',
                 'sinopse' => 'required  | max: 500',
                 'categoriafilme_id' => ' nullable',
                 'imagemfilme' => ' nullable|image|mimes:jpeg,jpg,png|max:2048',
@@ -37,37 +37,38 @@ class FilmeController extends Controller
                 'nome.required' => 'O nome é obrigatório',
                 'nome.max' => 'Só é permitido 120 caracteres',
                 'horario.required' => 'O horário é obrigatório',
-                'horario.max' => 'Só é permitido 6 caracteres',
+                'horario.max' => 'Só é permitido 50 caracteres',
                 'sinopse.required' => 'A sinopse é obrigatória',
                 'sinopse.max' => 'Só é permitido 500 caracteres',
             ]
         );
 
-        $imagemfilme = $request->file('imagemfilme');
-        $nome_arquivo = '';
-        if ($imagemfilme) {
-            $nome_arquivo =
-                date('YmdHis') . '.' . $imagemfilme->getClientOriginalExtension();
-
-            $diretorio = 'imagem/';
-            $imagemfilme->storeAs($diretorio, $nome_arquivo, 'public');
-            $nome_arquivo = $diretorio . $nome_arquivo;
-        }
-
-        //dd( $request->nome);
-        Filme::create([
+        $dados = [
             'nome' => $request->nome,
             'horario' => $request->horario,
             'sinopse' => $request->sinopse,
             'categoriafilme_id' => $request->categoriafilme_id,
-            'imagemfilme' => $nome_arquivo,
-        ]);
+        ];
 
-        return \redirect()->action(
-            'App\Http\Controllers\FilmeController@index'
-        );
+        $imagemfilme = $request->file('imagemfilme');
+        $nome_arquivo = '';
+        //verifica se o campo imagem foi passado uma imagem
+        if ($imagemfilme) {
+            $nome_arquivo = date('YmdHis') . '.' . $imagemfilme->getClientOriginalExtension();
+
+            $diretorio = 'imagem/';
+            //salva a imagem em uma pasta
+            $imagemfilme->storeAs($diretorio, $nome_arquivo, 'public');
+            //adiciona ao vetor o diretorio do arquivo e o nome
+            $dados['imagemfilme'] = $diretorio . $nome_arquivo;
+        }
+
+        //dd( $request->nome);
+        //passa o vetor com os dados do formulário como parametro para ser salvo
+        Filme::create($dados);
+
+        return \redirect('filme')->with('success', 'Cadastrado com sucesso!');
     }
-
     function edit($id)
     {
         //select * from usuario where id = $id;
@@ -100,7 +101,7 @@ class FilmeController extends Controller
         $request->validate(
             [
                 'nome' => 'required | max: 120',
-                'horario' => 'required | max: 6',
+                'horario' => 'required | max: 50',
                 'sinopse' => 'required  | max: 500',
                 'categoriafilme_id' => ' nullable',
                 'imagemfilme' => ' nullable|image|mimes:jpeg,jpg,png|max:2048',
@@ -109,32 +110,34 @@ class FilmeController extends Controller
                 'nome.required' => 'O nome é obrigatório',
                 'nome.max' => 'Só é permitido 120 caracteres',
                 'horario.required' => 'O horário é obrigatório',
-                'horario.max' => 'Só é permitido 6 caracteres',
+                'horario.max' => 'Só é permitido 50 caracteres',
                 'sinopse.required' => 'A sinopse é obrigatória',
                 'sinopse.max' => 'Só é permitido 500 caracteres',
             ]
         );
+        $dados = [
+            'nome' => $request->nome,
+            'horario' => $request->horario,
+            'sinopse' => $request->sinopse,
+            'categoriafilme_id' => $request->categoriafilme_id,
+        ];
 
         $imagemfilme = $request->file('imagemfilme');
         $nome_arquivo = '';
+        //verifica se o campo imagem foi passado uma imagem
         if ($imagemfilme) {
-            $nome_arquivo =
-                date('YmdHis') . '.' . $imagemfilme->getClientOriginalExtension();
+            $nome_arquivo = date('YmdHis') . '.' . $imagemfilme->getClientOriginalExtension();
 
             $diretorio = 'imagem/';
+            //salva a imagem em uma pasta
             $imagemfilme->storeAs($diretorio, $nome_arquivo, 'public');
-            $nome_arquivo = $diretorio . $nome_arquivo;
+            //adiciona ao vetor o diretorio do arquivo e o nome
+            $dados['imagemfilme'] = $diretorio . $nome_arquivo;
         }
 
         Filme::updateOrCreate(
             ['id' => $request->id],
-            [
-                'nome' => $request->nome,
-                'horario' => $request->horario,
-                'sinopse' => $request->sinopse,
-                'categoriafilme_id' => $request->categoriafilme_id,
-                'imagemfilme' => $nome_arquivo,
-            ]
+           $dados
         );
 
         return \redirect()->action(
