@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Filme;
 use App\Models\CategoriaFilme;
+use Illuminate\Support\Facades\Storage; 
 
 class FilmeController extends Controller
 {
@@ -149,7 +150,9 @@ class FilmeController extends Controller
     function destroy($id)
     {
         $filme = Filme::findOrFail($id);
-
+        if($filme->imagemfilme){
+            Storage::disk('public')->delete($filme->imagemfilme);
+        }
         $filme->delete();
 
         return \redirect()->action(

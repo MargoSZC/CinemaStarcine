@@ -156,7 +156,9 @@ class ProdutoController extends Controller
     function destroy($id)
     {
         $produto = Produto::findOrFail($id);
-
+        if($produto->imagemproduto){
+            Storage::disk('public')->delete($produto->imagemproduto);
+        }
         $produto->delete();
 
         return \redirect()->action(

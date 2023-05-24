@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Funcionario;
 use App\Models\CategoriaFuncionario;
+use Illuminate\Support\Facades\Storage; 
 
 class FuncionarioController extends Controller
 {
@@ -152,7 +153,9 @@ class FuncionarioController extends Controller
         function destroy($id)
     {
         $funcionario = Funcionario::findOrFail($id);
-
+        if($funcionario->imagemfuncionario){
+            Storage::disk('public')->delete($funcionario->imagemfuncionario);
+        }
         $funcionario->delete();
 
         return \redirect()->action(
